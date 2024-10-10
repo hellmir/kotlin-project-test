@@ -41,8 +41,26 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // data
-    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+    runtimeOnly ("com.mysql:mysql-connector-j")
+//    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    //kotlin-jdsl
+    val jdslVersion = "2.2.1.RELEASE"
+    // base
+    implementation("com.linecorp.kotlin-jdsl:hibernate-kotlin-jdsl-jakarta:$jdslVersion")
+    implementation("org.hibernate:hibernate-core:6.2.4.Final") // up to 6
+    // if using spring-data-jpa
+    implementation("com.linecorp.kotlin-jdsl:spring-data-kotlin-jdsl-starter-jakarta:$jdslVersion")
+
+    //security
+    implementation ("org.springframework.boot:spring-boot-starter-security")
+
+    //jwt
+    implementation ("io.jsonwebtoken:jjwt-api:0.11.5")
+    runtimeOnly ("io.jsonwebtoken:jjwt-impl:0.11.5")
+    runtimeOnly ("io.jsonwebtoken:jjwt-jackson:0.11.5")
+
 
     // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
